@@ -50,9 +50,30 @@ class EditorNav extends React.Component {
 		EditorUtil.deletePage(pageId)
 	}
 
-	renamePage(pageId) {
-		const label = window.prompt('Enter the new title:') || pageId
-		EditorUtil.renamePage(pageId, label)
+	renamePage(page) {
+		let label = window.prompt('Enter the new title:', page.label)
+
+		// null means the user canceled without changing the value
+		if (label === null) return
+
+		// If the user sent an empty value or only whitespace, set it to null to fix later
+		if (!label || /\s/.test(label)) label = null
+
+		// If presented with an empty "ok", the page validation code will
+		// provide "Page n" as the name
+		EditorUtil.renamePage(page.id, label)
+	}
+
+	renameModule(module) {
+		let label = window.prompt('Enter the new title:', module.label)
+
+		// null means the user canceled without changing the value
+		if (label === null) return
+
+		// If the module name is empty or just whitespace, provide a default value
+		if (!label || /\s/.test(label)) label = '(Unnamed Module)'
+
+		EditorUtil.renamePage(module.id, label)
 	}
 
 	movePage(pageId, index) {
@@ -90,7 +111,7 @@ class EditorNav extends React.Component {
 					{model.isLast() ? null : (
 						<button onClick={() => this.movePage(item.id, model.getIndex() + 1)}>Move Down</button>
 					)}
-					<button onClick={() => this.renamePage(item.id)}>Edit Name</button>
+					<button onClick={() => this.renamePage(item)}>Edit Name</button>
 					<button onClick={() => this.deletePage(item.id)}>Delete</button>
 					<button onClick={() => this.copyToClipboard(item.id)}>{'Id: ' + item.id}</button>
 				</div>
@@ -158,7 +179,7 @@ class EditorNav extends React.Component {
 						+ Add Assessment
 					</button>
 					<br />
-					<button className={'content-add-button'} onClick={() => this.renamePage(moduleItem.id)}>
+					<button className={'content-add-button'} onClick={() => this.renameModule(moduleItem)}>
 						Rename Module
 					</button>
 					<button className={'content-add-button'} onClick={() => this.copyToClipboard(url)}>
