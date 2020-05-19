@@ -33,7 +33,7 @@
 					"questionType": "default",
 					"children": [
 						{
-							"type": "ObojoboDraft.Chunks.MCAssessment.MCChoice",
+							"type": "ObojoboDraft.Chunks.AbstractAssessment.Choice",
 							"content": { "score": 0 },
 							"children": [
 								{

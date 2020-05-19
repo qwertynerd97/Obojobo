@@ -7,13 +7,13 @@ import NumericAssessmentComponent from './editor-component'
 // import NC from './NumericChoice/editor-component'
 // import NA from './components/numeric-answer/editor-component'
 import NormalizeUtil from 'obojobo-document-engine/src/scripts/oboeditor/util/normalize-util'
+import { CHOICE_NODE } from 'obojobo-chunks-abstract-assessment/constants'
 
 import emptyNode from './empty-node.json'
 
 const QUESTION_NODE = 'ObojoboDraft.Chunks.Question'
 const SOLUTION_NODE = 'ObojoboDraft.Chunks.Question.Solution'
 const NUMERIC_ASSESSMENT_NODE = 'ObojoboDraft.Chunks.NumericAssessment'
-const CHOICE_NODE = 'ObojoboDraft.Chunks.AbstractAssessment.Choice'
 
 const NumericAssessment = {
 	name: 'ObojoboDraft.Chunks.NumericAssessment',

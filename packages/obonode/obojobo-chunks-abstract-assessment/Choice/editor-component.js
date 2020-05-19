@@ -7,12 +7,12 @@ import withSlateWrapper from 'obojobo-document-engine/src/scripts/oboeditor/comp
 import { Transforms } from 'slate'
 import { ReactEditor } from 'slate-react'
 import isOrNot from 'obojobo-document-engine/src/scripts/common/util/isornot'
+import { FEEDBACK_NODE } from 'obojobo-chunks-abstract-assessment/constants'
 
 const { Button } = Common.components
 
 const TEXT_NODE = 'ObojoboDraft.Chunks.Text'
 const TEXT_LINE_NODE = 'ObojoboDraft.Chunks.Text.TextLine'
-const FEEDBACK_NODE = 'ObojoboDraft.Chunks.AbstractAssessment.Feedback'
 
 class Choice extends React.Component {
 	constructor(props) {

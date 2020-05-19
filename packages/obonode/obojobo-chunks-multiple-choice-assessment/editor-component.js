@@ -6,9 +6,10 @@ import withSlateWrapper from 'obojobo-document-engine/src/scripts/oboeditor/comp
 
 import './editor-component.scss'
 
+import { MC_ANSWER_NODE } from './constants'
+import { CHOICE_NODE } from 'obojobo-chunks-abstract-assessment/constants'
+
 const { Button, Switch } = Common.components
-const MCCHOICE_NODE = 'ObojoboDraft.Chunks.MCAssessment.MCChoice'
-const MCANSWER_NODE = 'ObojoboDraft.Chunks.MCAssessment.MCAnswer'
 const TEXT_NODE = 'ObojoboDraft.Chunks.Text'
 const TEXT_LINE_NODE = 'ObojoboDraft.Chunks.Text.TextLine'
 
@@ -36,11 +37,11 @@ class MCAssessment extends React.Component {
 		return Transforms.insertNodes(
 			this.props.editor,
 			{
-				type: MCCHOICE_NODE,
+				type: CHOICE_NODE,
 				content: { score: 0 },
 				children: [
 					{
-						type: MCANSWER_NODE,
+						type: MC_ANSWER_NODE,
 						content: {},
 						children: [
 							{

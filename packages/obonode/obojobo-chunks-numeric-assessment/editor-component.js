@@ -7,9 +7,9 @@ import { ReactEditor } from 'slate-react'
 import Common from 'obojobo-document-engine/src/scripts/common'
 import { NUMERIC_ANSWER_NODE } from './constants'
 import withSlateWrapper from 'obojobo-document-engine/src/scripts/oboeditor/components/node/with-slate-wrapper'
+import { CHOICE_NODE } from 'obojobo-chunks-abstract-assessment/constants'
 
 const { Button } = Common.components
-const CHOICE_NODE = 'ObojoboDraft.Chunks.AbstractAssessment.Choice'
 
 class NumericAssessment extends React.Component {
 	onAddNumericInput() {
